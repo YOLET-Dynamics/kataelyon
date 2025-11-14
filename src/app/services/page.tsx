@@ -96,8 +96,40 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Additional Services */}
+      {/* Visual Band */}
       <section className="py-16 lg:py-24 bg-muted">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6">
+              <span className="text-sm font-bold uppercase tracking-wider text-accent">
+                Our Commitment
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+                Quality, Efficiency, and Community Support
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Every service we provide is designed to strengthen Ethiopia's
+                economy and create lasting value for communities.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                From agriculture to construction, trading to logistics, we
+                deliver comprehensive solutions that drive national development
+                and empower local businesses.
+              </p>
+            </div>
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/img-3.png"
+                alt="Kataelyon Services"
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Services */}
+      <section className="py-16 lg:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 lg:mb-16 space-y-4">
             <span className="text-sm font-bold uppercase tracking-wider text-accent">
@@ -130,10 +162,10 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            <Card className="text-center border-2">
+            <Card className="group text-center border-2 card-hover-lift cursor-pointer">
               <CardContent className="p-8 space-y-4">
-                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
-                  <Wheat className="h-8 w-8 text-primary" />
+                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center transition-colors group-hover:bg-primary/20">
+                  <Wheat className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">
                   Agriculture
@@ -145,10 +177,10 @@ export default function ServicesPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-2">
+            <Card className="group text-center border-2 card-hover-lift cursor-pointer">
               <CardContent className="p-8 space-y-4">
-                <div className="w-16 h-16 mx-auto rounded-full bg-accent/10 flex items-center justify-center">
-                  <Package className="h-8 w-8 text-accent" />
+                <div className="w-16 h-16 mx-auto rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
+                  <Package className="h-8 w-8 text-accent transition-transform group-hover:scale-110" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">
                   Construction
@@ -160,10 +192,10 @@ export default function ServicesPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-2">
+            <Card className="group text-center border-2 card-hover-lift cursor-pointer">
               <CardContent className="p-8 space-y-4">
-                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
-                  <ShoppingCart className="h-8 w-8 text-primary" />
+                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center transition-colors group-hover:bg-primary/20">
+                  <ShoppingCart className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">Trading</h3>
                 <p className="text-muted-foreground leading-relaxed">

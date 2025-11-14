@@ -40,12 +40,12 @@ export function HeroSection({
             </div>
           )}
           
-          <h1 className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight ${backgroundImage ? 'text-background' : 'text-foreground'}`}>
+          <h1 className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight ${backgroundImage ? 'text-white' : 'text-foreground'}`}>
             {title}
           </h1>
           
           {description && (
-            <p className={`text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed ${backgroundImage ? 'text-background/90' : 'text-muted-foreground'}`}>
+            <p className={`text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed ${backgroundImage ? 'text-white/95' : 'text-muted-foreground'}`}>
               {description}
             </p>
           )}

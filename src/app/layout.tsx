@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { Toaster } from "sonner";
 import "./globals.css";
-
-// The font is defined in globals.css theme
 
 export const metadata: Metadata = {
   title: "Kataelyon Group | Building Ethiopia's Future",
@@ -69,7 +68,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <Toaster position="top-right" richColors />
+      </body>
     </html>
   );
 }

@@ -98,26 +98,74 @@ export default function HomePage() {
         subtitle="Building Ethiopia's Future"
         title="Dream Big, Start Small"
         description="Dedicated to enhancing the quality of life in Ethiopia and Africa through sustainable practices in agriculture, construction, trading, and waste management."
-        ctaText="Explore Our Services"
-        ctaHref="/services"
+        ctaText="Get In Touch"
+        ctaHref="/contact"
+        backgroundImage="/img-1.png"
       />
 
-      {/* Mission Statement */}
+      {/* Why Kataelyon Section */}
       <section className="py-16 lg:py-24 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-6">
-            <span className="text-sm font-bold uppercase tracking-wider text-accent">
-              Our Mission
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-              A Cornerstone of National Development
-            </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              We strive to be a catalyst for transformative development,
-              creating sustainable job opportunities and economic stability
-              while fostering innovation and responsible practices that benefit
-              our communities.
-            </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6">
+              <span className="text-sm font-bold uppercase tracking-wider text-accent">
+                Why Choose Us
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+                A Cornerstone of National Development
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Kataelyon Business Group is dedicated to enhancing the quality of life in Ethiopia and Africa by spearheading initiatives in agriculture, construction, trading, and waste management.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We strive to be a cornerstone of national development, creating sustainable job opportunities and economic stability while fostering innovation and responsible practices that benefit our communities and support the government's vision for growth.
+              </p>
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Target className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-foreground">Local Focus</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Supporting Ethiopian farmers and communities
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="font-bold text-foreground">Quality First</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Highest standards in all operations
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Lightbulb className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-foreground">Innovation</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Modern solutions for traditional sectors
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Users className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="font-bold text-foreground">Community</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Creating jobs and economic opportunity
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/nature-1.jpg"
+                alt="Ethiopian Landscape"
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -195,6 +243,83 @@ export default function HomePage() {
                 <div className="text-sm uppercase tracking-wider text-muted-foreground">
                   Core Values
                 </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Work Section */}
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: 'url(/nature-3.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 lg:mb-16 space-y-4">
+            <span className="text-sm font-bold uppercase tracking-wider text-accent">
+              Our Process
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+              How We Work
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A proven approach to delivering quality and building lasting partnerships.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border-2 hover:border-primary transition-colors duration-300">
+              <CardContent className="p-6 space-y-4">
+                <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-background font-bold text-xl">
+                  1
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Consultation</h3>
+                <p className="text-muted-foreground">
+                  We listen to your needs and assess project requirements to deliver tailored solutions.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-primary transition-colors duration-300">
+              <CardContent className="p-6 space-y-4">
+                <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-background font-bold text-xl">
+                  2
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Planning</h3>
+                <p className="text-muted-foreground">
+                  Strategic planning with efficient logistics and quality sourcing from trusted partners.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-primary transition-colors duration-300">
+              <CardContent className="p-6 space-y-4">
+                <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-background font-bold text-xl">
+                  3
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Execution</h3>
+                <p className="text-muted-foreground">
+                  Timely delivery with high-quality standards and transparent communication throughout.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-primary transition-colors duration-300">
+              <CardContent className="p-6 space-y-4">
+                <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-background font-bold text-xl">
+                  4
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Partnership</h3>
+                <p className="text-muted-foreground">
+                  Ongoing support and collaboration to ensure long-term success and community impact.
+                </p>
               </CardContent>
             </Card>
           </div>

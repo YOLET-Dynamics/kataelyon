@@ -15,100 +15,34 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { useState } from "react";
-
-const contactSchema = z.object({
-  name: z
-    .string()
-    .min(2, "Name must be at least 2 characters")
-    .max(100, "Name must not exceed 100 characters")
-    .regex(
-      /^[a-zA-Z\s'-]+$/,
-      "Name can only contain letters, spaces, hyphens, and apostrophes"
-    )
-    .transform((val) => val.trim()),
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .email("Please enter a valid email address")
-    .max(255, "Email must not exceed 255 characters")
-    .toLowerCase()
-    .transform((val) => val.trim()),
-  phone: z
-    .string()
-    .optional()
-    .refine((val) => {
-      if (!val || val.trim() === "") return true;
-      return /^[\d\s\-+()]+$/.test(val) && val.replace(/\D/g, "").length >= 9;
-    }, "Please enter a valid phone number (minimum 9 digits)")
-    .transform((val) => (val ? val.trim() : "")),
-  company: z
-    .string()
-    .max(200, "Company name must not exceed 200 characters")
-    .optional()
-    .transform((val) => (val ? val.trim() : "")),
-  service: z
-    .string()
-    .min(1, "Please select a service")
-    .max(50, "Service selection is invalid"),
-  message: z
-    .string()
-    .min(10, "Message must be at least 10 characters")
-    .max(2000, "Message must not exceed 2000 characters")
-    .transform((val) => val.trim()),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    reset,
-    formState: { errors, isSubmitting, isValid },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-    mode: "onBlur",
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      service: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      // Simulate API call
-      console.log("Form submitted:", data);
-
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(data),
-      // })
-
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      setIsSubmitted(true);
-      reset();
-
-      // Hide success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (error) {
-      console.error("Form submission error:", error);
-      // Handle error (show error message to user)
-    }
+  const showContactInfo = () => {
+    toast.info("Contact Form Coming Soon", {
+      description: (
+        <div className="space-y-2 mt-2">
+          <p className="text-sm">For now, please reach us directly:</p>
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 text-sm">
+              <Phone className="h-3.5 w-3.5" />
+              <span>+251 978 700 044</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <Phone className="h-3.5 w-3.5" />
+              <span>+251 987 729 191</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm">
+              <Mail className="h-3.5 w-3.5" />
+              <span>kolu.gudina11@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      ),
+      duration: 8000,
+    });
   };
 
   return (
@@ -206,31 +140,15 @@ export default function ContactPage() {
                 <CardTitle className="text-2xl">Send Us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                {isSubmitted && (
-                  <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0" />
-                    <p className="text-sm text-green-800 dark:text-green-200">
-                      Thank you for your message! We'll get back to you within
-                      1-2 business days.
-                    </p>
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name *</Label>
                     <Input
                       id="name"
                       placeholder="Your name"
-                      {...register("name")}
                       maxLength={100}
-                      className={errors.name ? "border-destructive" : ""}
+                      disabled
                     />
-                    {errors.name && (
-                      <p className="text-sm text-destructive">
-                        {errors.name.message}
-                      </p>
-                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -240,15 +158,9 @@ export default function ContactPage() {
                         id="email"
                         type="email"
                         placeholder="your@email.com"
-                        {...register("email")}
                         maxLength={255}
-                        className={errors.email ? "border-destructive" : ""}
+                        disabled
                       />
-                      {errors.email && (
-                        <p className="text-sm text-destructive">
-                          {errors.email.message}
-                        </p>
-                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -257,14 +169,8 @@ export default function ContactPage() {
                         id="phone"
                         type="tel"
                         placeholder="+251 XXX XXX XXX"
-                        {...register("phone")}
-                        className={errors.phone ? "border-destructive" : ""}
+                        disabled
                       />
-                      {errors.phone && (
-                        <p className="text-sm text-destructive">
-                          {errors.phone.message}
-                        </p>
-                      )}
                     </div>
                   </div>
 
@@ -273,60 +179,35 @@ export default function ContactPage() {
                     <Input
                       id="company"
                       placeholder="Your company name"
-                      {...register("company")}
                       maxLength={200}
-                      className={errors.company ? "border-destructive" : ""}
+                      disabled
                     />
-                    {errors.company && (
-                      <p className="text-sm text-destructive">
-                        {errors.company.message}
-                      </p>
-                    )}
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="service">Service Interest *</Label>
-                    <Controller
-                      name="service"
-                      control={control}
-                      render={({ field }) => (
-                        <Select
-                          value={field.value}
-                          onValueChange={field.onChange}
-                        >
-                          <SelectTrigger
-                            id="service"
-                            className={
-                              errors.service ? "border-destructive" : ""
-                            }
-                          >
-                            <SelectValue placeholder="Select a service" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="agriculture">
-                              Agricultural Goods
-                            </SelectItem>
-                            <SelectItem value="construction">
-                              Construction Materials
-                            </SelectItem>
-                            <SelectItem value="processed-foods">
-                              Processed Foods
-                            </SelectItem>
-                            <SelectItem value="import-export">
-                              Import/Export
-                            </SelectItem>
-                            <SelectItem value="logistics">Logistics</SelectItem>
-                            <SelectItem value="tenders">Tenders</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      )}
-                    />
-                    {errors.service && (
-                      <p className="text-sm text-destructive">
-                        {errors.service.message}
-                      </p>
-                    )}
+                    <Select disabled>
+                      <SelectTrigger id="service">
+                        <SelectValue placeholder="Select a service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="agriculture">
+                          Agricultural Goods
+                        </SelectItem>
+                        <SelectItem value="construction">
+                          Construction Materials
+                        </SelectItem>
+                        <SelectItem value="processed-foods">
+                          Processed Foods
+                        </SelectItem>
+                        <SelectItem value="import-export">
+                          Import/Export
+                        </SelectItem>
+                        <SelectItem value="logistics">Logistics</SelectItem>
+                        <SelectItem value="tenders">Tenders</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div className="space-y-2">
@@ -335,34 +216,25 @@ export default function ContactPage() {
                       id="message"
                       placeholder="Tell us about your project or inquiry..."
                       rows={6}
-                      {...register("message")}
                       maxLength={2000}
-                      className={errors.message ? "border-destructive" : ""}
+                      disabled
                     />
-                    {errors.message && (
-                      <p className="text-sm text-destructive">
-                        {errors.message.message}
-                      </p>
-                    )}
-                    <p className="text-xs text-muted-foreground">
-                      Minimum 10 characters, maximum 2000 characters
-                    </p>
                   </div>
 
                   <Button
-                    type="submit"
+                    type="button"
                     size="lg"
                     className="w-full group"
-                    disabled={isSubmitting}
+                    onClick={showContactInfo}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    Contact Us
                     <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center">
-                    We typically respond within 1-2 business days.
+                    Click the button above to see our contact information.
                   </p>
-                </form>
+                </div>
               </CardContent>
             </Card>
           </div>

@@ -5,7 +5,7 @@ import { HeroSection } from '@/components/hero-section'
 import { ValuesSection } from '@/components/values-section'
 import { CtaSection } from '@/components/cta-section'
 import { Card, CardContent } from '@/components/ui/card'
-import { Target, Eye, Recycle, Shield, Lightbulb, Users, HandshakeIcon, Award, Heart } from 'lucide-react'
+import { Target, Eye, Recycle, Shield, Lightbulb, Users, HandshakeIcon, Award, Heart, ArrowUpRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Us | Kataelyon Group',
@@ -88,6 +88,27 @@ export default function AboutPage() {
               Together, we are building a future where prosperity and stability will uplift all,
               establishing Ethiopia as a stronghold in African economic development.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Band */}
+      <section className="relative h-[400px] lg:h-[500px] overflow-hidden">
+        <img
+          src="/nature-2.jpg"
+          alt="Ethiopian Landscape"
+          className="object-cover w-full h-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 to-foreground/40 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                Rooted in Ethiopia, Growing for Africa
+              </h3>
+              <p className="text-lg text-white/95">
+                From local farms to national development, we're committed to building sustainable value chains that empower communities and strengthen economies.
+              </p>
+            </div>
           </div>
         </div>
       </section>
