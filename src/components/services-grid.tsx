@@ -5,6 +5,7 @@ export interface Service {
   icon: LucideIcon
   title: string
   description: string
+  details?: string[]
 }
 
 interface ServicesGridProps {
@@ -33,6 +34,17 @@ export function ServicesGrid({ services }: ServicesGridProps) {
               <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
+
+              {service.details && (
+                <ul className="space-y-2 text-sm text-muted-foreground pt-2 border-t border-border">
+                  {service.details.map((detail, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-accent mt-1">•</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </CardContent>
           </Card>
         )

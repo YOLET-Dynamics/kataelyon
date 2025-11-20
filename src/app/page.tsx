@@ -7,9 +7,12 @@ import { CtaSection } from "@/components/cta-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Sprout,
+  Monitor,
+  Droplets,
   Building2,
-  PackageOpen,
+  FileText,
+  Car,
+  Wheat,
   Recycle,
   ArrowRight,
   Target,
@@ -25,22 +28,40 @@ import Link from "next/link";
 export default function HomePage() {
   const mainServices = [
     {
-      icon: Sprout,
-      title: "Agriculture",
+      icon: Monitor,
+      title: "IT & Computer Equipment",
       description:
-        "High-quality agricultural products year-round, sourced from local farms with efficient storage and delivery systems.",
+        "Complete range of computer components, peripherals, and accessories for all your computing needs.",
+    },
+    {
+      icon: Droplets,
+      title: "Sanitary & Cosmetics",
+      description:
+        "Comprehensive sanitary supplies and personal care products for commercial and institutional use.",
     },
     {
       icon: Building2,
-      title: "Construction",
+      title: "Construction Materials",
       description:
-        "Reliable construction materials including cement and reinforcement, delivered through efficient logistics networks.",
+        "Full spectrum of construction materials from basic supplies to finishing touches and hardware.",
     },
     {
-      icon: PackageOpen,
-      title: "Trading",
+      icon: FileText,
+      title: "Stationery Materials",
       description:
-        "Import and export facilitation, tender participation, and comprehensive logistics solutions for seamless operations.",
+        "Complete office supplies including writing instruments, paper products, and organizational tools.",
+    },
+    {
+      icon: Car,
+      title: "Vehicle Parts",
+      description:
+        "Genuine automotive spare parts and accessories for reliable vehicle maintenance and repair.",
+    },
+    {
+      icon: Wheat,
+      title: "Agricultural Products",
+      description:
+        "High-quality grains and packaged food products distributed through efficient supply chains.",
     },
   ];
 
@@ -175,14 +196,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 lg:mb-16 space-y-4">
             <span className="text-sm font-bold uppercase tracking-wider text-accent">
-              What We Do
+              What We Supply
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
-              Our Core Services
+              Product Categories
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive solutions across multiple sectors to drive
-              Ethiopia's economic growth.
+              Quality products across six key categories for business, institutional, and commercial needs.
             </p>
           </div>
 

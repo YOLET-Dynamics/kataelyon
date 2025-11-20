@@ -19,7 +19,6 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ContactPage() {
-
   const showContactInfo = () => {
     toast.info("Contact Form Coming Soon", {
       description: (
@@ -36,7 +35,7 @@ export default function ContactPage() {
             </div>
             <div className="flex items-center gap-2 text-sm">
               <Mail className="h-3.5 w-3.5" />
-              <span>kolu.gudina11@gmail.com</span>
+              <span>info@kataelyon.et</span>
             </div>
           </div>
         </div>
@@ -93,10 +92,10 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-foreground mb-2">Email</h3>
                       <a
-                        href="mailto:kolu.gudina11@gmail.com"
+                        href="mailto:info@kataelyon.et"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        kolu.gudina11@gmail.com
+                        info@kataelyon.et
                       </a>
                     </div>
                   </CardContent>

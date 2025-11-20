@@ -86,10 +86,10 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:kolu.gudina11@gmail.com"
+                  href="mailto:info@kataelyon.et"
                   className="group inline-flex items-center gap-1 text-sm text-background/80 hover:text-accent transition-colors"
                 >
-                  kolu.gudina11@gmail.com
+                  info@kataelyon.et
                   <ArrowUpRight className="h-3.5 w-3.5 opacity-0 -translate-y-1 translate-x-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-1 transition-all duration-300" />
                 </a>
               </li>
