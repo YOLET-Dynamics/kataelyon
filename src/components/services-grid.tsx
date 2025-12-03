@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { type LucideIcon } from 'lucide-react'
 
@@ -5,6 +6,7 @@ export interface Service {
   icon: LucideIcon
   title: string
   description: string
+  image?: string
   details?: string[]
 }
 
@@ -20,8 +22,18 @@ export function ServicesGrid({ services }: ServicesGridProps) {
         return (
           <Card
             key={index}
-            className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent"
+            className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent overflow-hidden"
           >
+            {service.image && (
+              <div className="relative w-full aspect-video overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
             <CardContent className="p-6 lg:p-8 space-y-4">
               <div className="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                 <Icon className="h-7 w-7 text-accent group-hover:text-background transition-colors" />

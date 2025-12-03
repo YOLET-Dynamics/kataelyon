@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
@@ -22,20 +23,21 @@ import {
 export const metadata: Metadata = {
   title: "Products & Services | Kataelyon Group",
   description:
-    "Comprehensive supply solutions across IT equipment, sanitary products, construction materials, stationery, vehicle parts, and agricultural products. Plus logistics, import/export, and tender services.",
+    "Comprehensive supply solutions across computers, printers & servers, sanitary products, construction materials, stationery, vehicle parts, and agricultural products. Plus logistics, import/export, and tender services.",
 };
 
 export default function ServicesPage() {
   const mainServices = [
     {
       icon: Monitor,
-      title: "IT & Computer Equipment",
+      title: "Supply of Computer 💻, Printer 🖨️ & Servers",
       description:
-        "Complete range of computer components including GPUs, storage devices, power supplies, and peripherals. Quality hardware and accessories for all your computing needs.",
+        "Complete range of computers, printers, and server solutions for businesses and institutions. Quality hardware and accessories for all your computing and printing needs.",
+      image: "/service-imgs/computers.jpeg",
       details: [
-        "Graphics Cards, Sound Cards, Storage (HDD, SSD, NVMe)",
-        "Power Supply Units, Cooling Systems",
-        "USB Hubs, Cables (HDMI, DisplayPort, USB, Ethernet)",
+        "Desktop & Laptop Computers, Workstations",
+        "Printers (Laser, Inkjet), Scanners, Multifunction Devices",
+        "Servers, Network Equipment, Storage Solutions",
       ],
     },
     {
@@ -43,6 +45,7 @@ export default function ServicesPage() {
       title: "Sanitary & Cosmetics",
       description:
         "Comprehensive sanitary supplies and personal care products for commercial and institutional use, ensuring hygiene and cleanliness.",
+      image: "/service-imgs/sanitary.jpeg",
       details: [
         "Toilet Paper, Paper Towels, Facial Tissues",
         "Hand Soaps, Sanitizers, Dispensers",
@@ -54,6 +57,7 @@ export default function ServicesPage() {
       title: "Construction Materials",
       description:
         "Full spectrum of construction materials from basic supplies to finishing touches, including cement, metals, tiles, and construction chemicals.",
+      image: "/service-imgs/construction.jpeg",
       details: [
         "Cement, Sand, Aggregate, Bricks, Concrete Blocks",
         "Rebar, RHS, CHS, SHS, Binding & Mesh Wires",
@@ -66,6 +70,7 @@ export default function ServicesPage() {
       title: "Stationery Materials",
       description:
         "Complete office supplies including writing instruments, paper products, and organizational tools for businesses and institutions.",
+      image: "/service-imgs/stationery.jpeg",
       details: [
         "Pens, Pencils, Markers, Highlighters, Toners",
         "Printing Paper (A4, A3), Notebooks, Sticky Notes",
@@ -77,6 +82,7 @@ export default function ServicesPage() {
       title: "Vehicle Parts & Accessories",
       description:
         "Genuine automotive spare parts and accessories including engines, transmissions, brakes, tires, and batteries for reliable vehicle maintenance.",
+      image: "/service-imgs/vehicle.jpeg",
       details: [
         "Genuine Spare Parts (Engines, Transmissions, Brakes)",
         "Tires, Batteries, and Essential Accessories",
@@ -87,6 +93,7 @@ export default function ServicesPage() {
       title: "Agricultural Products",
       description:
         "High-quality grains and packaged food products sourced and distributed through efficient supply chains to meet market demands.",
+      image: "/service-imgs/agricultural.jpeg",
       details: [
         "Grains: Wheat, Corn, Barley, Soybean, Teff",
         "Packaged Foods: Nido, Edible Oils, Rice",
@@ -136,7 +143,8 @@ export default function ServicesPage() {
               Product Categories
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive supply solutions across six key categories, delivering quality products for business and institutional needs.
+              Comprehensive supply solutions across six key categories,
+              delivering quality products for business and institutional needs.
             </p>
           </div>
 
@@ -146,8 +154,16 @@ export default function ServicesPage() {
               return (
                 <Card
                   key={index}
-                  className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent"
+                  className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent overflow-hidden"
                 >
+                  <div className="relative w-full aspect-video overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                   <CardContent className="p-6 lg:p-8 space-y-4">
                     <div className="w-14 h-14 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-7 w-7 text-accent group-hover:text-background transition-colors" />
@@ -239,7 +255,8 @@ export default function ServicesPage() {
               How We Serve You
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Beyond product supply, we provide comprehensive business solutions.
+              Beyond product supply, we provide comprehensive business
+              solutions.
             </p>
           </div>
 
@@ -253,7 +270,8 @@ export default function ServicesPage() {
                   Import & Export
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Facilitating smooth international trade with quality control and regulatory compliance.
+                  Facilitating smooth international trade with quality control
+                  and regulatory compliance.
                 </p>
               </CardContent>
             </Card>
@@ -263,11 +281,10 @@ export default function ServicesPage() {
                 <div className="w-16 h-16 mx-auto rounded-full bg-accent/10 flex items-center justify-center transition-colors group-hover:bg-accent/20">
                   <Truck className="h-8 w-8 text-accent transition-transform group-hover:scale-110" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">
-                  Logistics
-                </h3>
+                <h3 className="text-xl font-bold text-foreground">Logistics</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Efficient logistics solutions ensuring timely and secure delivery from source to destination.
+                  Efficient logistics solutions ensuring timely and secure
+                  delivery from source to destination.
                 </p>
               </CardContent>
             </Card>
@@ -277,9 +294,12 @@ export default function ServicesPage() {
                 <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center transition-colors group-hover:bg-primary/20">
                   <FileCheck className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Tender Bidding</h3>
+                <h3 className="text-xl font-bold text-foreground">
+                  Tender Bidding
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Competitive offers and reliable service for large-scale institutional projects.
+                  Competitive offers and reliable service for large-scale
+                  institutional projects.
                 </p>
               </CardContent>
             </Card>

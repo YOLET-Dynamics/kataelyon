@@ -29,39 +29,45 @@ export default function HomePage() {
   const mainServices = [
     {
       icon: Monitor,
-      title: "IT & Computer Equipment",
+      title: "Computer 💻, Printer 🖨️ & Servers",
       description:
-        "Complete range of computer components, peripherals, and accessories for all your computing needs.",
+        "Complete range of computers, printers, and server solutions for all your business and computing needs.",
+      image: "/service-imgs/computers.jpeg",
     },
     {
       icon: Droplets,
       title: "Sanitary & Cosmetics",
       description:
         "Comprehensive sanitary supplies and personal care products for commercial and institutional use.",
+      image: "/service-imgs/sanitary.jpeg",
     },
     {
       icon: Building2,
       title: "Construction Materials",
       description:
         "Full spectrum of construction materials from basic supplies to finishing touches and hardware.",
+      image: "/service-imgs/construction.jpeg",
     },
     {
       icon: FileText,
       title: "Stationery Materials",
       description:
         "Complete office supplies including writing instruments, paper products, and organizational tools.",
+      image: "/service-imgs/stationery.jpeg",
     },
     {
       icon: Car,
       title: "Vehicle Parts",
       description:
         "Genuine automotive spare parts and accessories for reliable vehicle maintenance and repair.",
+      image: "/service-imgs/vehicle.jpeg",
     },
     {
       icon: Wheat,
       title: "Agricultural Products",
       description:
         "High-quality grains and packaged food products distributed through efficient supply chains.",
+      image: "/service-imgs/agricultural.jpeg",
     },
   ];
 
