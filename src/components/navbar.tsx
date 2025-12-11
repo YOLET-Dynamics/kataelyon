@@ -23,6 +23,7 @@ export function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
+    { href: "/partners", label: "Partners" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -41,7 +42,11 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors uppercase tracking-wide"
+                className={`group flex items-center gap-1 text-sm font-medium transition-colors uppercase tracking-wide ${
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:text-primary"
+                }`}
               >
                 {link.label}
                 <ArrowUpRight className="h-4 w-4 opacity-0 -translate-y-1 translate-x-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-1 transition-all duration-300" />
@@ -68,7 +73,11 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors uppercase tracking-wide"
+                className={`group flex items-center gap-1 text-sm font-medium transition-colors uppercase tracking-wide ${
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:text-primary"
+                }`}
               >
                 {link.label}
                 <ArrowUpRight className="h-4 w-4 opacity-0 -translate-y-1 translate-x-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-1 transition-all duration-300" />

@@ -60,6 +60,15 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/partners"
+                  className="group inline-flex items-center gap-1 text-sm text-background/80 hover:text-accent transition-colors"
+                >
+                  Partners
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 -translate-y-1 translate-x-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-1 transition-all duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="group inline-flex items-center gap-1 text-sm text-background/80 hover:text-accent transition-colors"
                 >

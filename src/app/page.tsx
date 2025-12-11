@@ -22,6 +22,7 @@ import {
   HandshakeIcon,
   Award,
   Heart,
+  Handshake,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -348,6 +349,88 @@ export default function HomePage() {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 lg:mb-16 space-y-4">
+            <span className="text-sm font-bold uppercase tracking-wider text-accent">
+              Our Network
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+              Trusted Partners
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Proud to collaborate with leading organizations across Ethiopia.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto mb-12">
+            <Card className="group border-2 hover:border-accent hover:shadow-xl transition-all duration-300 card-hover-lift">
+              <CardContent className="p-8 space-y-6">
+                <div className="flex items-start justify-between">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <Heart className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent px-3 py-1 rounded-full bg-accent/10">
+                    Humanitarian
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-foreground leading-tight">
+                    Ethiopian Red Cross Society
+                  </h3>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <FileText className="h-4 w-4 text-accent" />
+                    <span className="font-medium">Stationery Items</span>
+                  </div>
+                </div>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Supporting humanitarian efforts across Ethiopia with comprehensive office supplies and stationery materials.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="group border-2 hover:border-accent hover:shadow-xl transition-all duration-300 card-hover-lift">
+              <CardContent className="p-8 space-y-6">
+                <div className="flex items-start justify-between">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <Building2 className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent px-3 py-1 rounded-full bg-accent/10">
+                    Construction
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-foreground leading-tight">
+                    Alemayehu Ketema General Contractor
+                  </h3>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <FileText className="h-4 w-4 text-accent" />
+                    <span className="font-medium">Stationery Items</span>
+                  </div>
+                </div>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  Providing reliable stationery and office supplies to support construction project management and operations.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button asChild size="lg" className="group">
+              <Link href="/partners">
+                View All Partners
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
