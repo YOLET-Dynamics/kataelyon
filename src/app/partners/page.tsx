@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer'
 import { HeroSection } from '@/components/hero-section'
 import { CtaSection } from '@/components/cta-section'
 import { Card, CardContent } from '@/components/ui/card'
-import { FileText, Handshake, Building2, Heart, Users, Target } from 'lucide-react'
+import { FileText, Handshake, Building2, Heart, Users, Target, Shield } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Our Partners | Kataelyon Group',
@@ -37,6 +37,15 @@ export default function PartnersPage() {
         'Equipping educational and community initiatives with quality stationery materials to empower learning and development.',
       icon: Users,
       category: 'Foundation',
+    },
+    {
+      name: 'F.D.R.E Ministry of Defense',
+      subtitle: 'Defence Construction Materials Manufacturing Enterprise',
+      service: 'Construction Materials',
+      description:
+        'Supplying high-quality construction materials to support national defense infrastructure and development projects.',
+      icon: Shield,
+      category: 'Government',
     },
   ]
 
@@ -105,6 +114,11 @@ export default function PartnersPage() {
                       <h3 className="text-xl font-bold text-foreground leading-tight">
                         {partner.name}
                       </h3>
+                      {partner.subtitle && (
+                        <p className="text-sm text-muted-foreground italic">
+                          {partner.subtitle}
+                        </p>
+                      )}
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <FileText className="h-4 w-4 text-accent" />
                         <span className="font-medium">{partner.service}</span>
@@ -165,7 +179,7 @@ export default function PartnersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             <div className="text-center space-y-2">
-              <div className="text-5xl lg:text-6xl font-bold text-primary">3+</div>
+              <div className="text-5xl lg:text-6xl font-bold text-primary">4+</div>
               <div className="text-lg text-muted-foreground">
                 Trusted Partners
               </div>
@@ -179,7 +193,7 @@ export default function PartnersPage() {
             </div>
 
             <div className="text-center space-y-2">
-              <div className="text-5xl lg:text-6xl font-bold text-primary">3</div>
+              <div className="text-5xl lg:text-6xl font-bold text-primary">4</div>
               <div className="text-lg text-muted-foreground">
                 Sectors Served
               </div>
