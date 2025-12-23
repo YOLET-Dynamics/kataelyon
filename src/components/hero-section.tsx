@@ -40,7 +40,13 @@ export function HeroSection({
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           {subtitle && (
             <div className="inline-block">
-              <span className="text-sm font-bold uppercase tracking-wider text-gray-100 px-4 py-1.5 bg-accent/10 rounded-full">
+              <span
+                className={`text-sm font-bold uppercase tracking-wider px-4 py-1.5 rounded-full ${
+                  backgroundImage
+                    ? "text-gray-100 bg-accent/10"
+                    : "text-accent bg-accent/10"
+                }`}
+              >
                 {subtitle}
               </span>
             </div>

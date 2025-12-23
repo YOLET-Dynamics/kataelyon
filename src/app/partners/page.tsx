@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { HeroSection } from '@/components/hero-section'
 import { CtaSection } from '@/components/cta-section'
 import { Card, CardContent } from '@/components/ui/card'
-import { FileText, Handshake, Building2, Heart, Users, Target, Shield } from 'lucide-react'
+import { Handshake, Target, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Our Partners | Kataelyon Group',
@@ -17,35 +18,33 @@ export default function PartnersPage() {
     {
       name: 'Ethiopian Red Cross Society',
       service: 'Stationery Items',
-      description:
-        'Supporting humanitarian efforts across Ethiopia with comprehensive office supplies and stationery materials.',
-      icon: Heart,
+      logo: '/logos/redcross.jpg',
       category: 'Humanitarian',
     },
     {
       name: 'Alemayehu Ketema General Contractor',
       service: 'Stationery Items',
-      description:
-        'Providing reliable stationery and office supplies to support construction project management and operations.',
-      icon: Building2,
+      logo: '/logos/akgc.jpg',
       category: 'Construction',
     },
     {
       name: 'Gudina Tumsa Foundation',
       service: 'Stationery Items',
-      description:
-        'Equipping educational and community initiatives with quality stationery materials to empower learning and development.',
-      icon: Users,
+      logo: '/logos/gudina.jpg',
       category: 'Foundation',
     },
     {
       name: 'F.D.R.E Ministry of Defense',
       subtitle: 'Defence Construction Materials Manufacturing Enterprise',
       service: 'Construction Materials',
-      description:
-        'Supplying high-quality construction materials to support national defense infrastructure and development projects.',
-      icon: Shield,
+      logo: '/logos/defense.jpg',
       category: 'Government',
+    },
+    {
+      name: 'Norwegian Refugee Council',
+      service: 'Stationery Items',
+      logo: '/logos/norwegian.jpg',
+      category: 'International NGO',
     },
   ]
 
@@ -92,46 +91,36 @@ export default function PartnersPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {partners.map((partner, index) => {
-              const Icon = partner.icon
-              return (
-                <Card
-                  key={index}
-                  className="group border-2 hover:border-accent hover:shadow-xl transition-all duration-300 card-hover-lift"
-                >
-                  <CardContent className="p-8 space-y-6">
-                    <div className="flex items-start justify-between">
-                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                        <Icon className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-accent px-3 py-1 rounded-full bg-accent/10">
-                        {partner.category}
-                      </span>
-                    </div>
-
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-foreground leading-tight">
-                        {partner.name}
-                      </h3>
-                      {partner.subtitle && (
-                        <p className="text-sm text-muted-foreground italic">
-                          {partner.subtitle}
-                        </p>
-                      )}
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <FileText className="h-4 w-4 text-accent" />
-                        <span className="font-medium">{partner.service}</span>
-                      </div>
-                    </div>
-
-                    <p className="text-muted-foreground leading-relaxed">
-                      {partner.description}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="group flex flex-col items-center text-center space-y-4"
+              >
+                <div className="relative w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-2xl bg-white border-2 border-border p-4 flex items-center justify-center hover:border-accent hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    width={120}
+                    height={120}
+                    className="object-contain max-h-full max-w-full"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-sm md:text-base font-semibold text-foreground leading-tight">
+                    {partner.name}
+                  </h3>
+                  {partner.subtitle && (
+                    <p className="text-xs text-muted-foreground italic hidden md:block">
+                      {partner.subtitle}
                     </p>
-                  </CardContent>
-                </Card>
-              )
-            })}
+                  )}
+                  <span className="inline-block text-xs font-medium text-accent">
+                    {partner.service}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -177,9 +166,9 @@ export default function PartnersPage() {
       {/* Statistics */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             <div className="text-center space-y-2">
-              <div className="text-5xl lg:text-6xl font-bold text-primary">4+</div>
+              <div className="text-5xl lg:text-6xl font-bold text-primary">5+</div>
               <div className="text-lg text-muted-foreground">
                 Trusted Partners
               </div>
@@ -193,7 +182,7 @@ export default function PartnersPage() {
             </div>
 
             <div className="text-center space-y-2">
-              <div className="text-5xl lg:text-6xl font-bold text-primary">4</div>
+              <div className="text-5xl lg:text-6xl font-bold text-primary">5</div>
               <div className="text-lg text-muted-foreground">
                 Sectors Served
               </div>

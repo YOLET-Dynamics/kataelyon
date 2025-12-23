@@ -25,6 +25,7 @@ import {
   Handshake,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   const mainServices = [
@@ -383,93 +384,44 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto mb-12">
-            <Card className="group border-2 hover:border-accent hover:shadow-xl transition-all duration-300 card-hover-lift">
-              <CardContent className="p-8 space-y-6">
-                <div className="flex items-start justify-between">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <Heart className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-accent px-3 py-1 rounded-full bg-accent/10">
-                    Humanitarian
-                  </span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 lg:gap-10 max-w-5xl mx-auto mb-12">
+            {[
+              {
+                name: "Ethiopian Red Cross Society",
+                logo: "/logos/redcross.jpg",
+              },
+              {
+                name: "Alemayehu Ketema General Contractor",
+                logo: "/logos/akgc.jpg",
+              },
+              { name: "Gudina Tumsa Foundation", logo: "/logos/gudina.jpg" },
+              {
+                name: "F.D.R.E Ministry of Defense",
+                logo: "/logos/defense.jpg",
+              },
+              {
+                name: "Norwegian Refugee Council",
+                logo: "/logos/norwegian.jpg",
+              },
+            ].map((partner, index) => (
+              <div
+                key={index}
+                className="group flex flex-col items-center text-center space-y-3"
+              >
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl bg-white border-2 border-border p-3 flex items-center justify-center hover:border-accent hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    width={100}
+                    height={100}
+                    className="object-contain max-h-full max-w-full"
+                  />
                 </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground leading-tight">
-                    Ethiopian Red Cross Society
-                  </h3>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <FileText className="h-4 w-4 text-accent" />
-                    <span className="font-medium">Stationery Items</span>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed">
-                  Supporting humanitarian efforts across Ethiopia with
-                  comprehensive office supplies and stationery materials.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group border-2 hover:border-accent hover:shadow-xl transition-all duration-300 card-hover-lift">
-              <CardContent className="p-8 space-y-6">
-                <div className="flex items-start justify-between">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <Building2 className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-accent px-3 py-1 rounded-full bg-accent/10">
-                    Construction
-                  </span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground leading-tight">
-                    Alemayehu Ketema General Contractor
-                  </h3>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <FileText className="h-4 w-4 text-accent" />
-                    <span className="font-medium">Stationery Items</span>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed">
-                  Providing reliable stationery and office supplies to support
-                  construction project management and operations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group border-2 hover:border-accent hover:shadow-xl transition-all duration-300 card-hover-lift">
-              <CardContent className="p-8 space-y-6">
-                <div className="flex items-start justify-between">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <Shield className="h-8 w-8 text-primary group-hover:text-background transition-colors" />
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-accent px-3 py-1 rounded-full bg-accent/10">
-                    Government
-                  </span>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground leading-tight">
-                    F.D.R.E Ministry of Defense
-                  </h3>
-                  <p className="text-sm text-muted-foreground italic">
-                    Defence Construction Materials Manufacturing Enterprise
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <FileText className="h-4 w-4 text-accent" />
-                    <span className="font-medium">Construction Materials</span>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed">
-                  Supplying high-quality construction materials to support
-                  national defense infrastructure and development projects.
-                </p>
-              </CardContent>
-            </Card>
+                <h3 className="text-xs sm:text-sm font-medium text-foreground leading-tight">
+                  {partner.name}
+                </h3>
+              </div>
+            ))}
           </div>
 
           <div className="text-center">
